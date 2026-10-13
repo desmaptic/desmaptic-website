@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desmaptic — Mac Control Deck on iPhone &amp; iPad, Built by AI</title>
+  <meta name="description" content="A Mac control deck and macro pad on your iPhone or iPad. Claude, ChatGPT or any MCP client builds pages of live buttons; you approve each change on your phone.">
+  <meta name="robots" content="noindex">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Desmaptic">
+  <meta property="og:url" content="https://desmaptic.com/">
+  <meta property="og:title" content="Desmaptic — Mac Control Deck on iPhone &amp; iPad, Built by AI">
+  <meta property="og:description" content="A Mac control deck and macro pad on your iPhone or iPad. Claude, ChatGPT or any MCP client builds pages of live buttons; you approve each change on your phone.">
+  <meta property="og:image" content="https://desmaptic.com/assets/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Desmaptic — Mac Control Deck on iPhone &amp; iPad, Built by AI">
+  <meta name="twitter:description" content="A Mac control deck and macro pad on your iPhone or iPad. Claude, ChatGPT or any MCP client builds pages of live buttons; you approve each change on your phone.">
+  <meta name="twitter:image" content="https://desmaptic.com/assets/og-image.jpg">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <meta name="theme-color" content="#000000">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <link rel="stylesheet" href="/assets/style.css?v=20261013">
+  <!-- Without JS nothing reveals the sections: show them as they are -->
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+
+  <!-- A phone or tablet can't run the Mac agent: before the first paint, so the download buttons show "Send link to Mac" at once -->
+  <script>
+    if (/iPhone|iPad|iPod|Android/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+      document.documentElement.classList.add('handheld');
+    }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Desmaptic",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "iOS, iPadOS, macOS",
+    "description": "A Mac control deck and macro pad on your iPhone or iPad. Claude, ChatGPT or any MCP client builds pages of live buttons; you approve each change on your phone.",
+    "url": "https://desmaptic.com/",
+    "image": "https://desmaptic.com/assets/og-image.jpg",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Mikhail Zhukov"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Nav -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="/" class="nav-logo" aria-label="Desmaptic home">
+        <img src="/assets/icon-96.png" alt="" width="28" height="28">
+        desmaptic
+      </a>
+      <!-- .nav-compact: on a narrow screen the section links go, Docs and the button stay -->
+      <ul class="nav-links nav-compact">
+        <li class="nav-section"><a href="#features">Features</a></li>
+        <li class="nav-section"><a href="#ai">AI</a></li>
+        <li class="nav-section"><a href="#how-it-works">Setup</a></li>
+        <li class="nav-section"><a href="#faq">FAQ</a></li>
+        <li><a href="/docs">Docs</a></li>
+        <li>
+          <a href="/download/" class="nav-cta" data-send-to-mac><span class="only-mac">Download</span><span class="only-handheld">Send to Mac</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Cosmos animated background (matches iOS app) -->
+  <canvas id="cosmos-bg" aria-hidden="true"></canvas>
+
+  <!-- Hero -->
+  <section class="hero hero-duo" id="main">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-pitch">A control deck for your Mac, on iPhone and iPad.<br> <span class="accent">Your AI builds it.</span></h1>
+        <p class="hero-subtitle">Ask Claude, ChatGPT or any MCP client for a whole page of buttons: hotkeys, scripts, apps, live numbers that update on their own. You approve every change it sends, right on your&nbsp;phone.</p>
+        <div class="hero-actions">
+          <a href="/download/" class="btn-primary" data-send-to-mac>
+            <svg class="only-mac" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <svg class="only-handheld" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+            <span class="only-mac">Download Mac Agent</span><span class="only-handheld">Send link to Mac</span>
+          </a>
+          <!-- The iOS app is not in the App Store yet: a note, not a button. On release, swap every .soon-note span (here, in the CTA and on /changelog/) for the official App Store badge and reword step 01 in Setup. -->
+          <span class="soon-note">iPhone &amp; iPad app <span class="soon-tag">Coming soon</span></span>
+          <!-- Trust line: version and size come from the latest GitHub release (assets/agent-download.js); without them the line still reads "Free · macOS 15+ · Notarized by Apple" -->
+          <p class="trust-line">
+            <span>Free</span>
+            <span data-release-item hidden><a href="/changelog/" data-release="version" title="What's new in this version"></a></span>
+            <span data-release-item data-release="size" hidden></span>
+            <span>macOS 15+</span>
+            <span title="Signed with a Developer ID and checked for malware by Apple">Notarized by Apple</span>
+          </p>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <!-- The deck as the app draws it, in Apple's own product bezels: whole, upright, side by side, at their real relative size; nothing over the devices. Under the text, wider than the container, so the buttons' labels read -->
+        <div class="hero-devices">
+          <img class="hero-ipad" src="/assets/deck-ipad.webp" srcset="/assets/deck-ipad-1000.webp 1000w, /assets/deck-ipad.webp 1400w, /assets/deck-ipad-2000.webp 2000w" sizes="(max-width: 520px) calc(100vw - 32px), (max-width: 768px) calc(75vw - 24px), min(990px, 75vw - 36px)" alt="A control deck on iPad: gauges for CPU, memory, disk and battery, the next meeting, a world clock, the song playing and buttons for Mac actions" width="1400" height="1073" fetchpriority="high">
+          <img class="hero-iphone" src="/assets/deck-iphone.webp" srcset="/assets/deck-iphone.webp 540w, /assets/deck-iphone-800.webp 800w" sizes="(max-width: 520px) max(28.7vw - 9px, 98px), (max-width: 768px) calc(21.5vw - 7px), min(284px, 21.5vw - 10px)" alt="The same deck on iPhone" width="540" height="1102">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="marquee-item">Keyboard Shortcuts</span>
+      <span class="marquee-item">Shell Scripts</span>
+      <span class="marquee-item">AppleScript</span>
+      <span class="marquee-item">Siri Shortcuts</span>
+      <span class="marquee-item">App Launcher</span>
+      <span class="marquee-item">Live Widgets</span>
+      <span class="marquee-item">System Actions</span>
+      <span class="marquee-item">URL Schemes</span>
+      <span class="marquee-item">Text Snippets</span>
+      <span class="marquee-item">MCP Integration</span>
+      <span class="marquee-item">iCloud Sync</span>
+      <span class="marquee-item">iPad Support</span>
+      <!-- duplicate for seamless loop -->
+      <span class="marquee-item">Keyboard Shortcuts</span>
+      <span class="marquee-item">Shell Scripts</span>
+      <span class="marquee-item">AppleScript</span>
+      <span class="marquee-item">Siri Shortcuts</span>
+      <span class="marquee-item">App Launcher</span>
+      <span class="marquee-item">Live Widgets</span>
+      <span class="marquee-item">System Actions</span>
+      <span class="marquee-item">URL Schemes</span>
+      <span class="marquee-item">Text Snippets</span>
+      <span class="marquee-item">MCP Integration</span>
+      <span class="marquee-item">iCloud Sync</span>
+      <span class="marquee-item">iPad Support</span>
+    </div>
+  </div>
+
+  <!-- For whom — 3 typographic glass cards (use cases) -->
+  <section class="for-whom" id="for-whom">
+    <div class="container">
+      <div class="for-grid">
+
+        <article class="for-card for-engineers reveal">
+          <div class="for-meta">
+            <span class="for-num">01</span>
+            <span class="for-label">Engineers</span>
+          </div>
+          <h3 class="for-headline">Ship without <em>touching the keyboard.</em></h3>
+          <span class="for-rule" aria-hidden="true"></span>
+          <ul class="for-list">
+            <li>Deploy in one tap — not in five Slack messages</li>
+            <li>The five git commands you type all day, on buttons</li>
+            <li>Tail prod logs without opening a terminal</li>
+            <li>Run migrations from your phone, not from finding your laptop</li>
+            <li>Restart that service whose name you forgot</li>
+          </ul>
+          <img class="for-shot" src="/assets/for-engineers.webp" alt="A Fork page on iPhone: Fetch, Pull, Push, Commit, Changes, Stage All, Stash and Refresh buttons" width="880" height="440" loading="lazy">
+        </article>
+
+        <article class="for-card for-designers reveal">
+          <div class="for-meta">
+            <span class="for-num">02</span>
+            <span class="for-label">Designers</span>
+          </div>
+          <h3 class="for-headline">Your <em>shortcut sheet,</em> retired.</h3>
+          <span class="for-rule" aria-hidden="true"></span>
+          <ul class="for-list">
+            <li>Color picker, eyedropper, vector mode — on labelled buttons</li>
+            <li>Toggle layers, masks, UI without leaving the canvas</li>
+            <li>Export PSD, PNG, SVG — one tap, every preset</li>
+            <li>Switch tools — the buttons follow you</li>
+            <li>Stop memorising 200 shortcuts per tool</li>
+          </ul>
+          <img class="for-shot" src="/assets/for-designers.webp" alt="Figma buttons on iPhone: Auto Layout, Create Component, Group, Frame Selection, Pen, Comment, Actions and Last Plugin" width="880" height="440" loading="lazy">
+        </article>
+
+        <article class="for-card for-power reveal">
+          <div class="for-meta">
+            <span class="for-num">03</span>
+            <span class="for-label">Advanced users</span>
+          </div>
+          <h3 class="for-headline">Your <em>whole day,</em> on one tile.</h3>
+          <span class="for-rule" aria-hidden="true"></span>
+          <ul class="for-list">
+            <li>"Focus" mutes Slack, hides the dock, kills notifications</li>
+            <li>"Work setup" launches every app you need at 9 a.m.</li>
+            <li>That AppleScript from 2023 — finally one tap away</li>
+            <li>Caffeinate, brightness, sleep — labelled, not memorised</li>
+            <li>Fifty forgotten hotkeys, parked on labelled buttons</li>
+          </ul>
+          <img class="for-shot" src="/assets/for-power.webp" alt="A My Day page on iPhone: Work Setup, Focus, a keep-awake timer and Sleep, then buttons that open Slack, Linear, Figma and Zoom" width="880" height="440" loading="lazy">
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Features — Bento Grid: each card shows a piece of the real app (renders without a bezel) and one thing it does
+       for you; what the sections below tell (live widgets, the Gallery, the AI) stays out of it -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="features-header">
+        <div>
+          <div class="label">Capabilities</div>
+          <h2>A page per app.<br><span class="features-sub">A button per action.</span></h2>
+        </div>
+        <p>Hotkeys, app launches, system actions, shell scripts, AppleScript, Shortcuts, links and text snippets: whatever your Mac can do goes on a labelled button, one tap away from the window you’re in.</p>
+      </div>
+
+      <div class="bento stagger">
+        <!-- 01 — Buttons that ask (full width): the iPad, a Task for an Agent… bubble with a task typed in, over the deck -->
+        <div class="bento-card span-12 card-ask reveal">
+          <span class="card-number">01</span>
+          <div class="card-ask-text">
+            <h3>Type a task, and your agent gets to work</h3>
+            <div>
+              <p>Some buttons ask first. Tap <strong>Task for an Agent…</strong>, type or dictate the job, and Claude Code or Codex starts on it in a new window or tab of your terminal, in a worktree of its own. It may commit, never push.</p>
+              <p>More wait under <strong>Ask First</strong> in the Gallery, and most work the moment you add them: <strong>Type…</strong>, <strong>To the Mac…</strong>, <strong>Ask Claude…</strong>, <strong>Ask ChatGPT…</strong>, <strong>Search…</strong>, <strong>Reminder…</strong>, <strong>Note…</strong>, <strong>Email…</strong> and <strong>Say Aloud…</strong>. <strong>Ask the Project…</strong> and <strong>To Inbox…</strong> work at once too, like <strong>Task for an Agent…</strong>: they use the folder of your last AI session and Reminders until you pick your own. Only <strong>Bug in Linear…</strong> and <strong>Bug on GitHub…</strong>, which file a bug with your project’s branch and last commit, need setting up first: a Linear key, or the project folder and the GitHub CLI.</p>
+              <a class="ai-more" href="/docs?p=buttons-that-ask">Buttons that ask</a>
+            </div>
+          </div>
+          <picture>
+            <source media="(max-width: 768px)" srcset="/assets/feature-ask-narrow.webp" width="900" height="698">
+            <img class="feature-shot" src="/assets/feature-ask.webp" alt="A deck on iPad: next to the Task for an Agent… button a bubble asks “What should the agent do?” with “Fix the flaky login test, then run the suite” typed in, the quick replies Fix the failing tests, Update the dependencies and run the tests and Review the last commit, Paste and Send; around it live buttons for the next meeting, the song playing, reminders and AirPods battery" width="1800" height="655" loading="lazy">
+          </picture>
+        </div>
+
+        <!-- 02 — Pages that follow the app in front (wide): the same deck with Figma, then Xcode in front -->
+        <div class="bento-card span-7 card-pages reveal">
+          <span class="card-number">02</span>
+          <h3>Switch apps, and your buttons switch too</h3>
+          <p>Turn on <strong>Open with App</strong> for a page, and it comes up whenever its app comes to the front on your Mac: Figma brings its tools, Xcode its build buttons. Pin a page when you want it to stay put. Ready pages for Xcode, Figma, Fork, VS Code, Cursor, Linear and dozens more apps wait in the Gallery.</p>
+          <div class="page-flip">
+            <figure>
+              <img src="/assets/page-figma.webp" alt="The Figma page on iPhone: Move, Frame, Rectangle and Text buttons" width="880" height="293" loading="lazy">
+              <figcaption>Figma in front</figcaption>
+            </figure>
+            <span class="page-flip-arrow" aria-hidden="true">→</span>
+            <figure>
+              <img src="/assets/page-xcode.webp" alt="The Xcode page on iPhone: Build, Run, Test and Stop buttons" width="880" height="293" loading="lazy">
+              <figcaption>Xcode in front</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <!-- 03 — A failed tap says why: the bottom of an iPhone deck with the toast of a refused Open PR -->
+        <div class="bento-card span-5 card-toast reveal">
+          <span class="card-number">03</span>
+          <h3>A failed tap tells you why</h3>
+          <p>The button flashes red, and a toast names the problem with the error’s first words. <strong>Details</strong> has the rest.</p>
+          <img class="feature-shot" src="/assets/feature-toast.webp" alt="The last rows of a deck on iPhone after a tap of Open PR failed: a toast with a key, “Access refused”, “To get started with GitHub CLI, please run: gh auth login” and Details" width="1000" height="425" loading="lazy">
+        </div>
+
+        <!-- 04 — large screens (full width): the text left, the iPad's screen right, no bezel -->
+        <div class="bento-card span-12 card-ipad reveal">
+          <div class="card-ipad-text">
+            <span class="card-number">04</span>
+            <h3>Your build and your day, side by side</h3>
+            <p>An iPhone holds a grid of 4×8 buttons; a large screen, like an iPad or an unfolded iPhone Duo, holds 6×8: two more columns for buttons only large screens show. Turn it sideways and the page turns with it. Stretch a button over several cells for a gauge, the song playing or the next meeting.</p>
+            <p>iPhone and iPad share one deck through iCloud: change a page on one and it changes on the other — a smaller screen just leaves out the two extra columns.</p>
+          </div>
+          <img class="card-ipad-screen" src="/assets/ipad-xcode.webp" alt="The Xcode page on an iPad held sideways: Build, Run, Test, Stop and debugger buttons next to live buttons for the next meeting, the song playing, reminders, AirPods battery and a world clock" width="1400" height="1050" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live widgets — what info can sit on a button -->
+  <section class="widgets" id="widgets">
+    <div class="container">
+      <header class="ww-head">
+        <div class="label">Live widgets</div>
+        <h2>Anything with a <em>pulse,</em> on a button.</h2>
+        <p class="ww-sub">Buttons don't just fire actions — they glance back. Pin any number from any API, script, or sensor on your Mac. The tile refreshes itself.</p>
+      </header>
+
+      <!-- A page of live buttons, drawn by /assets/js/live-widgets.js (empty glass buttons if it doesn't load) -->
+      <div class="ww-deck reveal" data-live-widgets>
+        <div class="ww-grid">
+          <div class="ww-slot ww-now-playing" data-face="now-playing"></div>
+          <div class="ww-slot ww-claude" data-face="claude"></div>
+          <div class="ww-slot ww-build" data-face="build"></div>
+          <div class="ww-slot ww-price" data-face="price"></div>
+          <div class="ww-slot ww-weather" data-face="weather"></div>
+          <div class="ww-slot ww-cpu" data-face="cpu"></div>
+          <div class="ww-slot ww-pomodoro" data-face="pomodoro"></div>
+          <div class="ww-slot ww-stars" data-face="stars"></div>
+        </div>
+      </div>
+
+      <p class="ww-foot">Your music, a price from any API, your build, your AI agent waiting on you — every button here is a drawing your script sends. If you can fetch it, you can pin it.</p>
+      <p class="ww-more"><a href="/docs?p=recipes-widgets">Browse the widget recipes <span aria-hidden="true">→</span></a></p>
+    </div>
+  </section>
+
+  <!-- Gallery and scenes — start without code: the Gallery, then your AI, then your own script.
+       Pictures are renders of the app, without a bezel: a patch of the iPhone Gallery and the iPad screens (landscape) of the three scenes of its Unusual collection -->
+  <section class="gallery-scenes" id="gallery">
+    <div class="container">
+      <header class="ww-head gs-head">
+        <div class="label">Gallery</div>
+        <h2>Start without <em>code.</em></h2>
+        <p class="ww-sub">Ready-made widgets and whole living pages wait in the Gallery. Ask your AI for what isn’t there, and write a script of your own only when you want&nbsp;to.</p>
+      </header>
+
+      <div class="gs-path">
+        <div class="gs-gallery reveal">
+          <img src="/assets/gallery-widgets.webp" width="660" height="960" loading="lazy" alt="The Gallery on iPhone, For Everyone: System with System Monitor, CPU Load, Memory and Disk Free; Time &amp; Calendar with Calendar, Reminders, Timer and Stopwatch; Utilities with Keep Awake, Focus Window, Latest Download and Translate">
+        </div>
+
+        <ol class="gs-steps">
+          <li class="gs-step reveal">
+            <span class="gs-num" aria-hidden="true">01</span>
+            <h3>Add it from the Gallery</h3>
+            <p>Live widgets for your CPU, memory, disk, battery, calendar, timers and the song that’s playing, handy buttons, and whole pages that come alive. Pick one and add it: there is nothing to write.</p>
+          </li>
+          <li class="gs-step reveal">
+            <span class="gs-num" aria-hidden="true">02</span>
+            <h3>Ask your AI for the rest</h3>
+            <p>Describe the button in plain words to Claude, ChatGPT or any MCP client. It writes the script and the look; you tap <b>Accept</b> on your phone.</p>
+            <p class="gs-prompt"><span class="gs-prompt-who">You, to your AI</span>“Add a button that shows how many pull requests wait for my review, and opens them when I tap it.”</p>
+          </li>
+          <li class="gs-step reveal">
+            <span class="gs-num" aria-hidden="true">03</span>
+            <h3>Write your own when you want to</h3>
+            <p>A live widget is a zsh script on your Mac: a loop that tells the button what to show. Every widget from the Gallery shows its own under <b>Advanced</b>, yours to read and change.</p>
+            <div class="gs-code">
+              <span class="gs-code-title">Startup Script · excerpt</span>
+<pre><code><span class="c"># Free disk space: GB left, checked every 10 s</span>
+<span class="c"># … the helpers from the docs: cell, post, json …</span>
+last=<span class="s">""</span> sent_at=<span class="v">-100</span>
+<b>while</b> true; <b>do</b>
+  free=$(df -g / | awk <span class="s">'NR == 2 { print $4 }'</span>)
+  <span class="c"># send a change at once, the same value every 30 s</span>
+  <b>if</b> [[ <span class="v">$free</span> != <span class="v">$last</span> ]] || (( SECONDS - sent_at &gt;= <span class="v">30</span> )); <b>then</b>
+    title=$(json <span class="s">"<span class="v">$free</span> GB free"</span>)
+    post <span class="s">"{\"cellId\":\"<span class="v">$cell</span>\",\"title\":<span class="v">$title</span>}"</span> &amp;&amp;
+      last=<span class="v">$free</span> sent_at=<span class="v">$SECONDS</span>
+  <b>fi</b>
+  sleep <span class="v">10</span>
+<b>done</b></code></pre>
+            </div>
+            <a class="gs-more" href="/docs?p=live-widgets#your-first-live-widget-free-disk-space">Docs: Your first live widget</a>
+          </li>
+        </ol>
+      </div>
+
+      <header class="gs-scenes-head reveal" id="scenes">
+        <h3>Whole pages that come alive</h3>
+        <p>Three scenes in the Gallery’s <b>Unusual</b> collection turn every button of a page into one picture. Tap <b>Add Page</b>, and it’s your own copy to keep or take apart.</p>
+      </header>
+
+      <div class="gs-scenes stagger">
+        <figure class="gs-scene reveal">
+          <img src="/assets/scene-town.webp" width="1200" height="900" loading="lazy" alt="Mac Town on iPad: a neon city at night across the whole page, with a building for each app, such as Figma, Slack, Xcode and Terminal, a clock reading 22:00 and an airship in the sky">
+          <figcaption><b>Mac Town</b> A neon city built from the apps on your Mac. A busy Mac fills it with traffic; a tap switches apps.</figcaption>
+        </figure>
+        <figure class="gs-scene reveal">
+          <img src="/assets/scene-visualizer.webp" width="1200" height="900" loading="lazy" alt="Visualizer on iPad: every button of the page is one cell of glowing level bars, from cyan on the left to pink on the right">
+          <figcaption><b>Visualizer</b> The sound your Mac plays, across the whole page. A tap brings up the effect and the colors.</figcaption>
+        </figure>
+        <figure class="gs-scene reveal">
+          <img src="/assets/scene-aquarium.webp" width="1200" height="900" loading="lazy" alt="Aquarium on iPad: a fish tank across the whole page, with fish, a turtle and bubbles over sand, coral and seaweed">
+          <figcaption><b>Aquarium</b> A living fish tank across the whole page. Fish swim from button to button; a tap drops food where you touch.</figcaption>
+        </figure>
+      </div>
+
+      <p class="ww-more"><a href="/docs?p=scenes-and-sound#learn-from-the-gallery-scenes">How the scenes are made <span aria-hidden="true">→</span></a></p>
+    </div>
+  </section>
+
+  <!-- AI — what sets Desmaptic apart: an AI builds whole pages, and every change it sends waits for Accept on the phone.
+       The promises keep the agent's own words, as the FAQ does: "Changes an AI sends through Desmaptic wait for your
+       Accept on your iPhone or iPad", and through Desmaptic it never presses buttons; never "nothing changes without you".
+       AI apps are named in text, without their logos. -->
+  <section class="ai" id="ai">
+    <div class="container">
+      <div class="ai-layout">
+        <header class="ai-head reveal">
+          <div class="label">Built by your AI</div>
+          <h2>Your AI builds whole pages. <em>You tap Accept.</em></h2>
+          <p>Tell Claude, ChatGPT or any MCP client what you need. It writes the buttons, their scripts and live widgets, and sends the change to your iPhone or iPad as a card: each new button, the code it runs, and <b>Accept</b>.</p>
+        </header>
+
+        <!-- A render of the real app (the review card) in Apple's bezel: as in the hero, whole and upright, nothing over
+             it, no shadow, a fade and no movement, a still aura behind -->
+        <figure class="ai-card reveal reveal-fade">
+          <img src="/assets/ai-review-iphone.webp" alt="The review card on iPhone: “The AI wants to add 3 buttons”, from MacBook Pro, page “Project”, the AI’s words, then Run Tests, Pull and Pull Requests, each marked NEW with what a tap does and the script of Run Tests open; at the bottom Accept, Decide Later and Reject" width="680" height="1388" loading="lazy">
+          <figcaption>A change from your AI, waiting for your answer</figcaption>
+        </figure>
+
+        <div class="ai-body reveal">
+          <!-- Asks and results as the docs give them (AI › Asking for widgets); the last one is the change on the card -->
+          <dl class="ai-asks" aria-label="You say, you get">
+            <div class="ai-ask"><dt>“A page of Figma shortcuts”</dt><dd>A page of Key Combination buttons</dd></div>
+            <div class="ai-ask"><dt>“Show CPU load as a ring”</dt><dd>A drawn ring, kept current by a script on your Mac</dd></div>
+            <div class="ai-ask"><dt>“A 25-minute focus timer: tap to start, a ring that counts down”</dt><dd>One button: a tap starts it, a script draws the ring</dd></div>
+            <div class="ai-ask"><dt>“Buttons to run my app’s tests, pull, and open its pull requests”</dt><dd>Three buttons: two scripts and a link, each shown on the card</dd></div>
+          </dl>
+
+          <div class="ai-promise">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            <div>
+              <p><b>Changes an AI sends through Desmaptic wait for your Accept</b> on your iPhone or iPad.</p>
+              <p>Through Desmaptic, an AI can’t press your buttons or delete them.</p>
+              <a class="ai-more" href="/security/">How Desmaptic protects your Mac</a>
+            </div>
+          </div>
+
+          <div class="ai-works">
+            <span class="ai-works-label">Works with</span>
+            <span class="compat-item">Claude Desktop</span>
+            <span class="compat-item">Claude Code</span>
+            <span class="compat-item">ChatGPT / Codex</span>
+            <span class="compat-item">Cursor</span>
+            <span class="compat-item">Any MCP client</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Claude Code waiting for an answer: the recipe's face, drawn by /assets/js/live-widgets.js -->
+      <div class="ai-wait reveal">
+        <div class="ai-wait-face" data-live-widgets>
+          <div class="ww-slot" data-face="claude"></div>
+        </div>
+        <div class="ai-wait-text">
+          <h3>Know when Claude Code waits for you</h3>
+          <p>When Claude Code needs your answer, a button on your phone turns red and names the project. A tap or your next prompt clears it.</p>
+        </div>
+        <a class="ai-more" href="/docs?p=recipes-alerts#claude-code-needs-input">The recipe</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plugin — the Desmaptic plugin for Claude Code and Codex. The install lines are the plugin README's, word for word:
+       change them together. The license line follows the README too: the widget skill is not MIT, so never call the whole plugin MIT or open source.
+       No "first" or "only": other ways to reach these tools from a phone exist. -->
+  <section class="plugin" id="plugin">
+    <div class="container">
+      <div class="plug-layout">
+        <header class="plug-head reveal">
+          <div class="label">For Claude Code &amp; Codex</div>
+          <h2>Plug Claude Code and Codex <em>into your deck.</em></h2>
+          <p>The Desmaptic plugin connects them to your iPhone or iPad from Terminal. Describe what you need in your own words; every change still waits for your <b>Accept</b> on the phone.</p>
+          <ul class="plug-points">
+            <li><b>Buttons and live widgets, described.</b> Ask for “a page for my video calls” or run <code>/desmaptic:widget CPU load as a ring</code>: the assistant finds room on your page, builds it and sends it over.</li>
+            <li><b>Every AI session at a glance.</b> The AI Sessions page gives each Claude Code and Codex session on your Mac a card: working, waiting for your permission, done. A tap answers a session waiting for your reply; touch and hold brings its app forward.</li>
+            <li><b>The source is on GitHub.</b> The connection, the four commands and the session hooks are under MIT; the widget skill has its own license, PolyForm Shield&nbsp;1.0.0.</li>
+          </ul>
+        </header>
+
+        <div class="plug-install reveal" id="plugin-install">
+          <div class="plug-cmd">
+            <div class="plug-cmd-head">
+              <span class="plug-cmd-title">Claude Code</span>
+              <button type="button" class="code-copy" data-copy aria-label="Copy the Claude Code install line"><span class="code-copy-icon"></span><span class="code-copy-text">Copy</span></button>
+            </div>
+            <pre><code><span class="plug-line">claude plugin install desmaptic <span class="plug-nb">--marketplace</span> <span class="plug-nb">desmaptic/desmaptic-plugin</span></span></code></pre>
+          </div>
+          <div class="plug-cmd">
+            <div class="plug-cmd-head">
+              <span class="plug-cmd-title">Codex</span>
+              <button type="button" class="code-copy" data-copy aria-label="Copy the Codex install lines"><span class="code-copy-icon"></span><span class="code-copy-text">Copy</span></button>
+            </div>
+            <pre><code><span class="plug-line">codex plugin marketplace add <span class="plug-nb">desmaptic/desmaptic-plugin</span></span><span class="plug-line">codex plugin add desmaptic@desmaptic</span></code></pre>
+          </div>
+          <p class="plug-note">In Terminal on your Mac. Needs Desmaptic Agent running there and the app on your iPhone or iPad.</p>
+          <div class="plug-links">
+            <a class="ai-more" href="/docs?p=plugin">Install, commands and the AI Sessions page</a>
+            <a class="ai-more" href="https://github.com/desmaptic/desmaptic-plugin">The plugin on GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="container">
+      <div class="how-header">
+        <div class="label" style="justify-content: center;">Setup</div>
+        <h2>Three steps. <span>That's it.</span></h2>
+        <p class="how-subtitle">Pairing takes about a minute. No account, no cloud signup, no setup wizard.</p>
+      </div>
+
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="3"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+          </div>
+          <span class="step-number">01</span>
+          <h3>Get the iPhone app</h3>
+          <!-- On release of the iOS app, reword this together with every .soon-note span (hero, CTA and /changelog/). -->
+          <p>Desmaptic for iPhone and iPad is coming soon to the App Store. No account, no signup, nothing to configure on first launch.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M2 8h20"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <span class="step-number">02</span>
+          <h3>Install the Mac agent</h3>
+          <p>A tiny menubar app — free, native, lives quietly in your menu bar and stays out of the way.</p>
+        </div>
+        <div class="step reveal">
+          <div class="step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+          </div>
+          <span class="step-number">03</span>
+          <h3>Same Wi-Fi, you're in</h3>
+          <p>Your phone finds the Mac automatically. Confirm a PIN once — that's the whole pairing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ — the questions people ask before installing. Every answer is checked against the docs and the app:
+       security promises stay within the agent's own words ("Changes an AI sends through Desmaptic wait for your Accept"),
+       never "the AI does nothing without you". Each answer ends with a link to the details. -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="faq-layout reveal">
+        <header class="faq-head">
+          <div class="label">FAQ</div>
+          <h2>Fair questions. <span>Straight answers.</span></h2>
+          <p>What an AI can touch, what Desmaptic needs from your Mac, and what it costs. The rest is in the <a href="/docs">docs</a>.</p>
+        </header>
+
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>What can an AI do on my Mac without me?</summary>
+            <div class="faq-answer">
+              <p>Changes an AI sends through Desmaptic wait for your <b>Accept</b> on your iPhone or iPad. Through Desmaptic, on its own, it can look: your profiles, pages and buttons, your apps and which one is in front, whether your startup scripts run. It can also restart a startup script that is already on your deck.</p>
+              <p>A new or changed button, page or profile arrives on the phone as a card that shows every script it runs, and nothing changes until you tap <b>Accept</b>. Running a command on your Mac is off until you turn on <b>Allow AI to Run Commands</b>, and then you allow each command. Through Desmaptic, an AI can’t press your buttons or delete them.</p>
+              <p>This covers what goes through Desmaptic. An AI app that runs commands by its own means, such as Claude Code in Terminal, follows that app’s permissions.</p>
+              <a class="faq-more" href="/docs?p=ai#what-the-assistant-can-and-cant-do">Docs: What the assistant can and can’t do</a>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Do I need to write code?</summary>
+            <div class="faq-answer">
+              <p>No. Most buttons need none: pick a type such as Launch App, Key Combination, System Action, Run Shortcut or Text Snippet, and set it up on the phone. Ready-made live widgets wait in the Gallery, and an AI app can write the rest for you.</p>
+              <p>Scripts are there for when no type does the job: zsh or AppleScript, with recipes you can copy as they are.</p>
+              <a class="faq-more" href="/docs?p=start#what-a-button-can-do">Docs: What a button can do</a>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Which AI apps work with it, and do I need one?</summary>
+            <div class="faq-answer">
+              <p>Claude Desktop, Claude Code and ChatGPT / Codex connect with <b>Connect</b> in the agent’s <b>AI Assistants</b>. Cursor, Windsurf and any other MCP client take a config you copy from the same place.</p>
+              <p>An AI app is optional. Everything it builds, you can also build by hand on the phone.</p>
+              <a class="faq-more" href="/docs?p=ai#connect-your-ai-app">Docs: Connect your AI app</a>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Does it work away from my home Wi-Fi?</summary>
+            <div class="faq-answer">
+              <p>Yes, through your own VPN, such as Tailscale. On the same Wi-Fi network, at home or at the office, your iPhone or iPad finds your Mac by itself. Away from home, it reaches the same Mac through the VPN once you allow it on the Mac and turn on App Lock on the phone. Either way they talk to each other directly over an encrypted connection; there is no Desmaptic server to carry a tap over the internet.</p>
+              <p>You pair once, on the same Wi-Fi, with a 6-digit code. After that, the phone reconnects by itself.</p>
+              <a class="faq-more" href="/docs?p=away-from-home">Docs: Away from home</a>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Which macOS and iOS do I need?</summary>
+            <div class="faq-answer">
+              <p>A Mac with macOS 15 or later, and an iPhone or iPad with iOS 17 or iPadOS 17 or later. Desmaptic Agent lives in the menu bar; it has no Dock icon.</p>
+              <a class="faq-more" href="/docs?p=start#what-you-need">Docs: What you need</a>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Why does the agent ask for Accessibility?</summary>
+            <div class="faq-answer">
+              <p>macOS lets an app press keys and type for you only with Accessibility. Desmaptic Agent needs it for Key Combination, Text Snippet and most System Actions: the keys it presses and the text it types when you tap those buttons.</p>
+              <p>You can skip it in Setup. Those buttons then flash red with “Accessibility access needed”; Launch App, Open URL and scripts that don’t press keys work without it. You can turn it off at any time in System Settings › Privacy &amp; Security › Accessibility.</p>
+              <a class="faq-more" href="/docs?p=scripts#macos-permissions">Docs: macOS permissions</a>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Is there a Windows or Android version?</summary>
+            <div class="faq-answer">
+              <p>No. Desmaptic is native to Apple devices: an agent for the Mac and an app for iPhone and iPad, which share your deck through iCloud. There is no Windows agent and no Android app.</p>
+              <a class="faq-more" href="/docs?p=start#what-you-need">Docs: What you need</a>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>Where is my data stored?</summary>
+            <div class="faq-answer">
+              <p>On your devices and in your own iCloud. Your deck, with its profiles, pages, buttons and their scripts, syncs between your iPhone and iPad through your iCloud account. What your scripts remember stays in a private folder on your Mac and is never synced.</p>
+              <p>There is no Desmaptic server, no account and no analytics. If you connect an AI app, what you ask it goes to that app’s servers, under its own privacy policy.</p>
+              <a class="faq-more" href="/docs?p=scripts#storage-and-size-limits">Docs: Storage and size limits</a>
+              <a class="faq-more" href="/privacy">Privacy Policy</a>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary>What’s free, and what does Pro add?</summary>
+            <div class="faq-answer">
+              <p>The Mac agent is free. The iPhone and iPad app is free with two profiles and two pages in each, with every button type, live widgets and AI apps included.</p>
+              <p>Desmaptic Pro unlocks unlimited profiles and pages and lets you reorder pages: monthly, yearly or a one-time Lifetime purchase, through the App Store. A profile or page past the free plan is never deleted: it stays locked until Pro opens it.</p>
+              <a class="faq-more" href="/terms#subscriptions">Terms: Free and Pro</a>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to try?</h2>
+      <p>Free to start. Pro unlocks everything.</p>
+      <div class="cta-actions">
+        <a href="/download/" class="btn-primary" data-send-to-mac>
+          <span class="only-mac">Get Mac Agent — Free</span><span class="only-handheld">Send link to Mac</span>
+        </a>
+        <span class="soon-note">iPhone &amp; iPad app <span class="soon-tag">Coming soon</span></span>
+        <!-- Trust line: see the hero -->
+        <p class="trust-line">
+          <span>Free</span>
+          <span data-release-item hidden><a href="/changelog/" data-release="version" title="What's new in this version"></a></span>
+          <span data-release-item data-release="size" hidden></span>
+          <span>macOS 15+</span>
+          <span title="Signed with a Developer ID and checked for malware by Apple">Notarized by Apple</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-left">
+        <span class="footer-logo">desmaptic</span>
+        <ul class="footer-links">
+          <li><a href="/docs">Docs</a></li>
+          <li><a href="/changelog/">What's new</a></li>
+          <li><a href="/next/press/">Press</a></li>
+          <li><a href="/security/">Security</a></li>
+          <li><a class="gh-link" href="https://github.com/desmaptic" aria-label="Desmaptic on GitHub"><svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"/></svg>GitHub</a></li>
+          <li><a href="/privacy">Privacy</a></li>
+          <li><a href="/terms">Terms</a></li>
+          <li><a href="mailto:support@desmaptic.com">Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-right">&copy; 2026 Desmaptic</div>
+    </div>
+  </footer>
+
+  <script type="module" src="/assets/js/live-widgets.js"></script>
+
+  <script>
+    // ── Cosmos Background ──
+    // Port of AnimatedBackground + BackgroundTheme.cosmos from Swift
+    (function() {
+      // Skip the animated background entirely when reduced motion is requested.
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      const canvas = document.getElementById('cosmos-bg');
+      const ctx = canvas.getContext('2d');
+
+      const blobs = [
+        { baseX: 0.2,  baseY: 0.15, radius: 0.35, r: 120, g: 50,  b: 180, speedX: 0.25, speedY: 0.20, phase: 0   },
+        { baseX: 0.8,  baseY: 0.45, radius: 0.30, r: 40,  g: 100, b: 220, speedX: 0.30, speedY: 0.25, phase: 2.1 },
+        { baseX: 0.25, baseY: 0.75, radius: 0.32, r: 200, g: 50,  b: 100, speedX: 0.20, speedY: 0.30, phase: 4.2 },
+        { baseX: 0.75, baseY: 0.20, radius: 0.25, r: 50,  g: 180, b: 140, speedX: 0.35, speedY: 0.22, phase: 1.0 },
+      ];
+
+      // The picture is 80px-blurred soft gradients, so it is drawn at a quarter of the
+      // window size and the browser scales it up: same look, ~16x fewer pixels to fill.
+      const SCALE = 0.25;
+      // The drift is slow (under 100 px a second behind an 80px blur): 20 frames a second
+      // look the same as 60. A timer, not requestAnimationFrame: a rAF loop wakes the
+      // browser on every refresh (60 or 120 times a second) even if it draws only some of
+      // them; with a timer the page and the browser sleep between frames.
+      const FRAME_MS = 1000 / 20;
+
+      function resize() {
+        const w = Math.max(1, Math.round(window.innerWidth * SCALE));
+        const h = Math.max(1, Math.round(window.innerHeight * SCALE));
+        if (canvas.width !== w || canvas.height !== h) {
+          canvas.width = w;
+          canvas.height = h;
+        }
+        canvas.style.width = window.innerWidth + 'px';
+        canvas.style.height = window.innerHeight + 'px';
+      }
+
+      function paint(time) {
+        const t = time * 0.001; // seconds
+        const w = canvas.width;
+        const h = canvas.height;
+        const minSide = Math.min(w, h);
+
+        ctx.clearRect(0, 0, w, h);
+
+        for (const blob of blobs) {
+          const x = blob.baseX * w + Math.sin(t * blob.speedX + blob.phase) * w * 0.18;
+          const y = blob.baseY * h + Math.cos(t * blob.speedY + blob.phase * 1.3) * h * 0.12;
+
+          const wobble = 1.0 + Math.sin(t * 0.3 + blob.phase) * 0.15;
+          const radius = blob.radius * minSide * wobble;
+          const ellipseRadius = radius * 1.5;
+
+          const rotation = Math.sin(t * 0.15 + blob.phase) * 0.3;
+
+          ctx.save();
+          ctx.translate(x, y);
+          ctx.rotate(rotation);
+
+          const grad = ctx.createRadialGradient(0, 0, 0, 0, 0, ellipseRadius);
+          grad.addColorStop(0,    'rgba(' + blob.r + ',' + blob.g + ',' + blob.b + ', 0.3)');
+          grad.addColorStop(0.35, 'rgba(' + blob.r + ',' + blob.g + ',' + blob.b + ', 0.15)');
+          grad.addColorStop(0.7,  'rgba(' + blob.r + ',' + blob.g + ',' + blob.b + ', 0.04)');
+          grad.addColorStop(1,    'rgba(' + blob.r + ',' + blob.g + ',' + blob.b + ', 0)');
+
+          ctx.fillStyle = grad;
+          ctx.beginPath();
+          ctx.ellipse(0, 0, ellipseRadius, ellipseRadius * 0.85, 0, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.restore();
+        }
+      }
+
+      // Runs only while the tab is visible (and the canvas is displayed at all: the
+      // observer also catches it being hidden by the page, e.g. Reduce Motion switched on
+      // with the page open). The canvas is fixed behind everything, so scrolling never
+      // takes it off screen.
+      let timer = 0;
+      let inView = true;
+
+      function tick() {
+        const now = performance.now();
+        paint(now);
+        timer = setTimeout(tick, FRAME_MS);
+      }
+
+      function sync() {
+        const run = inView && !document.hidden;
+        if (run && !timer) {
+          timer = setTimeout(tick, 0);
+        } else if (!run) {
+          clearTimeout(timer);
+          timer = 0;
+        }
+      }
+
+      window.addEventListener('resize', () => {
+        resize();
+        paint(performance.now()); // resizing clears the canvas
+      });
+      document.addEventListener('visibilitychange', sync);
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver((entries) => {
+          inView = entries[entries.length - 1].isIntersecting;
+          sync();
+        }).observe(canvas);
+      }
+
+      resize();
+      sync();
+    })();
+
+    // ── Screenshot mode: force-reveal everything + scroll to anchor ──
+    if (location.search.includes('ss=1')) {
+      document.documentElement.classList.add('ss-mode');
+      requestAnimationFrame(() => {
+        document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+        if (location.hash) {
+          const el = document.querySelector(location.hash);
+          if (el) el.scrollIntoView({ block: 'start', behavior: 'instant' });
+        }
+      });
+    }
+
+    // ── Scroll-triggered reveal ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── Smooth scroll ──
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+      });
+    });
+
+    // ── Card glow follow mouse ──
+    document.querySelectorAll('.bento-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mouse-x', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--mouse-y', (e.clientY - r.top) + 'px');
+      });
+    });
+
+    // ── Copy the plugin's install lines (the same button and icons as the docs' code blocks) ──
+    (function() {
+      const COPY = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+      const CHECK = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>';
+
+      async function copyText(text) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return true;
+        } catch {
+          // No clipboard API outside a secure context
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          let ok = false;
+          try { ok = document.execCommand('copy'); } catch {}
+          document.body.removeChild(ta);
+          return ok;
+        }
+      }
+
+      document.querySelectorAll('[data-copy]').forEach(btn => {
+        const icon = btn.querySelector('.code-copy-icon');
+        const label = btn.querySelector('.code-copy-text');
+        icon.innerHTML = COPY;
+        btn.addEventListener('click', async () => {
+          if (btn.dataset.busy) return;
+          const lines = [...btn.closest('.plug-cmd').querySelectorAll('.plug-line')].map(l => l.textContent);
+          if (!(await copyText(lines.join('\n')))) return;
+          btn.dataset.busy = '1';
+          btn.classList.add('is-copied');
+          icon.innerHTML = CHECK;
+          label.textContent = 'Copied';
+          setTimeout(() => {
+            btn.classList.remove('is-copied');
+            icon.innerHTML = COPY;
+            label.textContent = 'Copy';
+            delete btn.dataset.busy;
+          }, 1600);
+        });
+      });
+    })();
+  </script>
+  <script src="/assets/agent-download.js?v=20261007" defer></script>
+</body>
+</html>

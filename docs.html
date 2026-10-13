@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desmaptic Docs</title>
+  <meta name="description" content="Desmaptic documentation: buttons that run scripts on your Mac, live widgets, SVG faces, button logic, notifications, recipes and the script API.">
+  <link rel="canonical" href="https://desmaptic.com/docs">
+
+  <!-- Open Graph (docs.js sets title, description and URL for each page) -->
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Desmaptic">
+  <meta property="og:url" content="https://desmaptic.com/docs">
+  <meta property="og:title" content="Desmaptic Docs">
+  <meta property="og:description" content="Desmaptic documentation: buttons that run scripts on your Mac, live widgets, SVG faces, button logic, notifications, recipes and the script API.">
+  <meta property="og:image" content="https://desmaptic.com/assets/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Desmaptic Docs">
+  <meta name="twitter:description" content="Desmaptic documentation: buttons that run scripts on your Mac, live widgets, SVG faces, button logic, notifications, recipes and the script API.">
+  <meta name="twitter:image" content="https://desmaptic.com/assets/og-image.jpg">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <meta name="theme-color" content="#000000">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="modulepreload" href="assets/docs/js/marked-14.1.3.esm.js">
+  <link rel="stylesheet" href="assets/style.css?v=20261001">
+</head>
+<body class="docs-body">
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="/" class="nav-logo" aria-label="Desmaptic home">
+        <img src="assets/icon-96.png" alt="" width="28" height="28">
+        desmaptic
+      </a>
+      <ul class="nav-links">
+        <li><a href="docs" aria-current="page">Docs</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Below 900 px: the page list and "On this page" open from this bar -->
+  <div class="docs-subbar">
+    <button type="button" class="docs-subbar-toggle" id="docsPanelToggle" aria-controls="docsNav" aria-expanded="false">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
+      <span class="docs-subbar-label">Pages</span>
+      <span class="docs-subbar-sep" aria-hidden="true">·</span>
+      <span class="docs-subbar-title" id="docsSubbarTitle">Docs</span>
+    </button>
+    <a class="docs-subbar-step" id="docsSubbarPrev" href="docs" aria-label="Previous page" hidden>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+    </a>
+    <a class="docs-subbar-step" id="docsSubbarNext" href="docs" aria-label="Next page" hidden>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+    </a>
+  </div>
+  <div class="docs-backdrop" id="docsBackdrop" hidden></div>
+
+  <div class="docs-shell">
+
+    <aside class="docs-nav" id="docsNav" aria-label="Documentation">
+      <div class="docs-nav-inner">
+        <div class="docs-nav-head">
+          <span class="docs-toc-label">Desmaptic Docs</span>
+          <button type="button" class="docs-nav-close" id="docsPanelClose" aria-label="Close the page list">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+        <nav class="docs-nav-pages" id="docsNavPages" aria-label="Pages"></nav>
+      </div>
+    </aside>
+
+    <main class="docs-main" id="main" tabindex="-1">
+      <header class="docs-page-head" id="docsPageHead"></header>
+      <details class="docs-otp-dropdown" id="docsOtpDropdown" hidden>
+        <summary>On this page</summary>
+      </details>
+      <article class="docs-content" id="docsContent">
+        <div class="docs-loading">Loading documentation…</div>
+        <noscript>
+          <p>These docs need JavaScript. The pages are also plain Markdown:
+            <a href="assets/docs/pages/start.md">Get started</a>,
+            <a href="assets/docs/pages/live-widgets.md">Live widgets</a>,
+            <a href="assets/docs/pages/svg-faces.md">SVG faces</a>,
+            <a href="assets/docs/pages/scripts.md">How scripts run</a>,
+            <a href="assets/docs/pages/api.md">Script API</a>.</p>
+        </noscript>
+      </article>
+      <nav class="docs-pager" id="docsPager" aria-label="Previous and next page"></nav>
+    </main>
+
+    <aside class="docs-rail" id="docsRail" aria-label="On this page" hidden>
+      <div class="docs-rail-inner">
+        <div class="docs-toc-label">On this page</div>
+        <ul class="docs-toc-list" id="docsRailList"></ul>
+      </div>
+    </aside>
+
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-left">
+        <span class="footer-logo">desmaptic</span>
+        <ul class="footer-links">
+          <li><a href="docs">Docs</a></li>
+          <li><a href="privacy">Privacy</a></li>
+          <li><a href="terms">Terms</a></li>
+          <li><a href="mailto:support@desmaptic.com">Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-right">&copy; 2026 Desmaptic</div>
+    </div>
+  </footer>
+
+  <script type="module" src="assets/docs/docs.js?v=20261001"></script>
+</body>
+</html>
