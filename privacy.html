@@ -50,7 +50,7 @@
 
   <main class="legal container" id="main">
     <h1>Privacy Policy</h1>
-    <span class="legal-updated">Last updated: October 11, 2026</span>
+    <span class="legal-updated">Last updated: October 16, 2026</span>
     <p>This policy covers the Desmaptic app for iPhone and iPad, Desmaptic Agent for Mac, and the website desmaptic.com.</p>
 
     <h2>Who is responsible</h2>
@@ -70,6 +70,7 @@
       <li><strong>Emails you send me.</strong> See “If you email me”.</li>
       <li><strong>Statistics from Apple.</strong> Apple tells me how many people download and buy the app. If you chose in your device settings to share analytics with app developers, Apple also gives me crash reports and usage statistics for Desmaptic. These don’t include your name, Apple ID or contact details.</li>
       <li><strong>Download counts from GitHub.</strong> GitHub tells me how many times the agent was downloaded, without any information about who downloaded it.</li>
+      <li><strong>Visit totals from Cloudflare.</strong> How many visits the website had, which pages were opened, which sites linked to them, the visitors’ countries, browsers, operating systems and devices, and how fast the pages loaded — see “This website”.</li>
     </ul>
     <p>Nothing else reaches me.</p>
 
@@ -128,7 +129,7 @@
     <p>The apps write technical events to Apple’s system log on your device: connection status, the names and local network addresses of connected devices, which app is in front or was opened, file paths and error codes. They don’t write the text of your buttons or notifications or what your scripts print (at most the interpreter named on a script’s first line). Anyone who can read your device’s logs can read these. They stay on your device and are deleted by the system over time; they leave it only if you share a diagnostic report with Apple yourself.</p>
 
     <h2>This website</h2>
-    <p>desmaptic.com is hosted on GitHub Pages. GitHub logs visitors’ IP addresses for security. The site reaches you through Cloudflare, which also counts visits for me with Cloudflare Web Analytics: it sees your IP address, the page you open and, from the IP address, your country, and shows me only totals — visits, pages and countries. It sets no cookies and doesn’t follow you to other sites. The site’s earlier address, desktap.app, goes through Cloudflare too: it forwards you to the same page on desmaptic.com. The site itself sets no cookies. The agent’s download link leads to GitHub, which may set its own cookies.</p>
+    <p>desmaptic.com is hosted on GitHub Pages. GitHub logs visitors’ IP addresses for security. A small Cloudflare script on every page counts visits for me with Cloudflare Web Analytics: it sees your IP address, the page you open and the page that linked you to it, your browser, operating system and type of device, and how fast the page loaded; from the IP address it finds your country. It shows me only totals, never individual visitors. It sets no cookies, doesn’t recognise you when you come back and doesn’t follow you to other sites. The site itself sets no cookies. The agent’s download link leads to GitHub, which may set its own cookies.</p>
 
     <h2>If you email me</h2>
     <p>Emails to <a href="mailto:support@desmaptic.com">support@desmaptic.com</a> arrive in my iCloud Mail account (Apple). I use them only to answer you and to fix problems you report. I keep the correspondence for up to 24 months after our last exchange and then delete it; you can ask me to delete it sooner. You don’t have to email me, but I need your email address to reply.</p>
@@ -136,20 +137,20 @@
     <h2>Legal bases</h2>
     <ul>
       <li>Answering your emails: my legitimate interest in helping you and improving Desmaptic (GDPR Art. 6(1)(f)); when you write about something you bought or want to buy, also the steps needed for that contract (Art. 6(1)(b)).</li>
-      <li>Delivering this website and checking for agent updates: my legitimate interest in providing the website securely and keeping the agent up to date with fixes (Art. 6(1)(f)).</li>
+      <li>Delivering this website, counting its visits and checking for agent updates: my legitimate interest in providing the website securely, knowing how many people visit it and which pages they read, and keeping the agent up to date with fixes (Art. 6(1)(f)).</li>
     </ul>
     <p><strong>You can object</strong> at any time to processing based on legitimate interests (Art. 21): write to <a href="mailto:support@desmaptic.com">support@desmaptic.com</a>. To stop the agent’s automatic update checks, run <code>defaults write com.desmaptic.agent SUEnableAutomaticChecks -bool false</code> in Terminal and restart the agent.</p>
     <p>I make no automated decisions about you.</p>
 
     <h2>Sharing</h2>
-    <p>I don’t sell, rent or share personal data. The providers that help me run Desmaptic — Apple (iCloud Mail, App Store), GitHub (website, downloads and updates) and Cloudflare (delivering the website, counting its visits and forwarding from its earlier address) — process only what is described here, under their own privacy commitments, which protect it at least as well as this policy does. What you send to an AI assistant, a website or another service through your buttons, you share with that service yourself, under its terms.</p>
+    <p>I don’t sell, rent or share personal data. The providers that help me run Desmaptic — Apple (iCloud Mail, App Store), GitHub (website, downloads and updates) and Cloudflare (counting the website’s visits and forwarding old links to it) — process only what is described here, under their own privacy commitments, which protect it at least as well as this policy does. What you send to an AI assistant, a website or another service through your buttons, you share with that service yourself, under its terms.</p>
 
     <h2>International transfers</h2>
     <p>Some of these providers process data outside the European Economic Area:</p>
     <ul>
       <li>Apple (iCloud, iCloud Mail, App Store): Apple Distribution International Limited (Ireland) is responsible for personal data of users in Europe; Apple’s transfers outside it are covered by Standard Contractual Clauses.</li>
       <li>GitHub (website hosting, agent downloads and updates): certified under the EU-U.S. Data Privacy Framework.</li>
-      <li>Cloudflare (delivering the website, counting its visits and forwarding from its earlier address): certified under the EU-U.S. Data Privacy Framework.</li>
+      <li>Cloudflare (counting the website’s visits and forwarding old links to it): certified under the EU-U.S. Data Privacy Framework.</li>
       <li>An AI assistant you connect: its provider’s terms apply.</li>
     </ul>
 
@@ -190,5 +191,6 @@
     </div>
   </footer>
 
+  <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d238867a7ea24ca4a051cca75ecae123"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
