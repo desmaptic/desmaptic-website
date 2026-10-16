@@ -1585,6 +1585,16 @@ html.handheld .only-mac { display: none; }
   scroll-margin-top: 88px;   /* a link to a section (/terms#subscriptions) lands below the fixed nav */
 }
 
+/* A question on /support */
+.legal h3 {
+  font-family: var(--display);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  margin-top: 28px;
+  margin-bottom: 8px;
+  scroll-margin-top: 88px;
+}
+
 .legal p, .legal li {
   color: var(--text-secondary);
   font-size: 0.875rem;

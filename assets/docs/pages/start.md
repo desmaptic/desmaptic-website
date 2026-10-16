@@ -1,4 +1,4 @@
-<!-- updated: 2026-10-12 -->
+<!-- updated: 2026-10-16 -->
 # Get started
 
 A Desmaptic button can run a script on your Mac, and the script can change how the button looks. That is how you build live widgets: buttons that keep themselves current, like a CPU ring, a timer or a build status.

@@ -1,4 +1,4 @@
-<!-- updated: 2026-10-12 -->
+<!-- updated: 2026-10-16 -->
 # How scripts run
 
 The rules behind every script a button runs on your Mac: how it starts, what it gets, how long it may run, how it stops and what macOS asks for. The learning pages teach the patterns; this page is where you look them up.
@@ -25,8 +25,8 @@ A button can run a script when you tap it, when you hold it, and the whole time 
 | Notification action | the `command` of an action button in `POST /api/notify` | when you tap that action button | 60 s, run as a tap of the notification's button |
 
 - Tap, long press and the startup script are independent: one button can run all three at once.
-- While a tap script runs, the button's border pulses and the phone sends no further taps. **Stop Process** in the editor's **Tap** or **Long Press** section ends it.
-- The agent does not track AppleScript and Shortcut runs: they have no **Stop Process**, do not appear under **Scripts** in the agent window on the Mac, and end on their own or at 60 s.
+- While a tap script runs, the button's border pulses and the phone sends no further taps. **Stop Command** in the editor's **Tap** or **Long Press** section ends it.
+- The agent does not track AppleScript and Shortcut runs: they have no **Stop Command**, do not appear under **Scripts** in the agent window on the Mac, and end on their own or at 60 s.
 
 > [!SEE]
 > Success is silent. A tap or long press that fails flashes the button red, shakes it and shows a toast: what went wrong, the start of the error text and **Details**, which opens its row in **Errors**.
@@ -61,7 +61,7 @@ Every script a button runs gets the same small environment, which the agent buil
 
 | In the Variables menu | What it is |
 |---|---|
-| `$DESMAPTIC_TOKEN` · "token for the agent's local API (new each time the agent starts)" | The script token. Let curl read it, never copy it ([The token](#the-token)). |
+| `$DESMAPTIC_TOKEN` · "token for requests to Desmaptic Agent (new each time it starts)" | The script token. Let curl read it, never copy it ([The token](#the-token)). |
 | `$DESMAPTIC_STORAGE` · "folder on the Mac for the script's files" | `~/Library/Application Support/Desmaptic/ScriptStorage`, for what a script must remember ([Storage and size limits](#storage-and-size-limits)). |
 | `{{CELL_ID}}` · "replaced with the button's ID" | Not a variable: text the agent replaces with this button's ID before the script runs ([Placeholders](#placeholders)). |
 
@@ -227,7 +227,7 @@ Tap, long-press, AppleScript and Shortcut runs end after 60 s; a startup script 
 | What stops the script | Time between SIGTERM and SIGKILL |
 |---|---|
 | the 60 s limit of a tap or long-press script | 2 s |
-| **Stop Process** on the phone; **Stop**, **Stop All** or **Restart** under **Scripts** on the Mac | 2 s |
+| **Stop Command** on the phone; **Stop**, **Stop All** or **Restart** under **Scripts** on the Mac | 2 s |
 | a changed, removed or replaced startup script; a profile switch; an accepted change from an AI app | 2 s |
 | the phone disconnects | 2 s |
 | **Quit Desmaptic**, or the agent relaunching after an update | 0.5 to 2 s: plan for 0.5 s |
@@ -257,7 +257,7 @@ How the common traps compare:
 | `trap cleanup EXIT` alone | nothing: zsh skips the EXIT trap on SIGTERM (bash runs it) |
 | `trap cleanup EXIT` and `trap 'cleanup; exit 0' TERM` | `cleanup`, twice |
 
-- When you or the agent stop a script (**Stop Process**, **Stop**, a changed script, a disconnect), the phone returns that button to its saved look by itself; at the 60 s limit it does not. The trap matters for the other buttons a script drew, for state it must save, and when something else stops it (Activity Monitor, `pkill`).
+- When you or the agent stop a script (**Stop Command**, **Stop**, a changed script, a disconnect), the phone returns that button to its saved look by itself; at the 60 s limit it does not. The trap matters for the other buttons a script drew, for state it must save, and when something else stops it (Activity Monitor, `pkill`).
 - With `exit 0`, an outside stop counts as finished, and the agent does not restart the startup script. Without a trap, the stop counts as a failure and the script is restarted.
 - Keep the trap to one quick post: whatever still runs at SIGKILL is cut off.
 
@@ -337,7 +337,7 @@ What a script sets is the button's live look; the saved look is the name, icon, 
 | the script exits by itself, with any exit code | nothing: the live look stays |
 | a tap script reaches the 60 s limit | nothing |
 | a startup script fails and waits to restart | nothing |
-| the agent stops the script: **Stop Process**, **Stop**, **Stop All**, **Restart**, a changed or removed startup script, a profile switch, an accepted AI change | this button only; other buttons the script drew keep their look |
+| the agent stops the script: **Stop Command**, **Stop**, **Stop All**, **Restart**, a changed or removed startup script, a profile switch, an accepted AI change | this button only; other buttons the script drew keep their look |
 | **Save** with changes | this button |
 | an update with `"reset": true` | the button it names |
 | the phone disconnects, or Desmaptic restarts | every button |
@@ -351,7 +351,7 @@ A script lives inside its button; what it remembers lives in the storage folder 
 |---|---|
 | The storage folder | `$DESMAPTIC_STORAGE`: private to your account, on this Mac only, never synced. Every button shares it; give each widget a folder ([Button logic › Remembering things](?p=button-logic#remembering-things)). |
 | One script (tap, long press or startup) | 256 KB; a larger one does not run |
-| One button: its scripts, face and icon together | 750,000 bytes. A larger one gets **Button Too Large** on Save: "This button is N KB, over the 750 KB sync limit. Make its scripts, drawing or icon smaller." |
+| One button: its scripts, face and icon together | 750,000 bytes. A larger one gets **Button Too Large** on Save: "This button is N KB, but a button can be up to 750 KB. Make its scripts, drawing or icon smaller." |
 | The script itself | always inline. iCloud carries buttons to your other devices but never the storage folder: a button that calls a script file breaks on another Mac. |
 
 ## macOS permissions
@@ -381,7 +381,7 @@ An AppleScript gets the same environment as a shell script, and `do shell script
 | Build the JSON with `jq --arg` | `quoted form of` protects the text from the shell, not the JSON from a quote in a song title |
 | Tap **Validate** in the code sheet | it compiles the script on the Mac and shows **Valid** or the error |
 | Name variables so they do not clash with the app's words | inside `tell application "Music"`, `playing` and `song` already mean something, and the script will not compile |
-| Put loops into a startup script in zsh that calls `osascript` | an AppleScript run is not tracked: no **Stop Process**, not under **Scripts** on the Mac, and it ends at 60 s |
+| Put loops into a startup script in zsh that calls `osascript` | an AppleScript run is not tracked: no **Stop Command**, not under **Scripts** on the Mac, and it ends at 60 s |
 | Send notifications whose actions run something from a Shell Command or a startup script | the agent refuses them from an AppleScript button (403) |
 
 Set as a button's tap, this AppleScript shows the song that is playing on the button for 5 seconds:

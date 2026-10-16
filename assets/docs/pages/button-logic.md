@@ -1,4 +1,4 @@
-<!-- updated: 2026-10-11 -->
+<!-- updated: 2026-10-16 -->
 # Button logic
 
 Most buttons with logic follow one pattern: a tap changes something, and a startup script notices and draws. This page puts that pattern to work, from a switch that shows its state to a timer that spans two buttons. You need no AI app for any of it: every script is plain zsh that you paste into a button on your iPhone or iPad.
@@ -330,7 +330,7 @@ Here the focus timer moves its countdown to a second button, and the button you 
 2. Tap the new button to open it, tap **Advanced**, and under **Button ID** tap **Copy**. It turns into **Copied**.
 3. Open the timer, the button you tap. In **Advanced › Startup Script**, replace the script with the one below and paste the ID in place of `PASTE-THE-COUNTDOWN-BUTTON-ID`. Tap **Done**, then **Save**.
 
-<img src="assets/docs/img/button-logic/button-id.png" width="280" height="608" alt="The Advanced screen of the countdown button: Startup Script with “Write Script”, then Button ID, a long ID in monospace with Copy, and the footer “This button’s scripts see it as {{CELL_ID}}. Copy it when one script draws several buttons.” with Learn More…">
+<img src="assets/docs/img/button-logic/button-id.png" width="280" height="608" alt="The Advanced screen of the countdown button: Startup Script with “Write Script”, then Button ID, a long ID in monospace with Copy, and the footer “In this button’s scripts, {{CELL_ID}} is replaced with this ID. Copy it when one script draws several buttons.” with Learn More…">
 
 <!-- verified 2026-10-01, agent 1.2.3 (build 8), harness -->
 ```zsh title="Startup Script"
@@ -431,12 +431,12 @@ This long press gives a running focus session 5 more minutes. Like the tap, it o
 > Hold the timer while a session runs: within a second the countdown shows 5 more minutes.
 
 - The tap and the long press run independently: one can run while the other does.
-- While a long-press **Shell Command** runs, **Stop Process** appears in the **Long Press** section of the editor.
+- While a long-press **Shell Command** runs, **Stop Command** appears in the **Long Press** section of the editor.
 - Use the long press for a second, less common action, or for one that stops, discards or deletes. Keep the main action on the tap: a switch should flip when you tap it.
 
 <div class="shot-pair">
 <img src="assets/docs/img/button-logic/long-press-1.png" width="240" height="521" alt="The focus button on the deck with a small triangle in its top-right corner, the mark of a long press.">
-<img src="assets/docs/img/button-logic/long-press-2.png" width="240" height="429" alt="The editor of the focus button, scrolled to Appearance and Long Press: Type “Shell Command”, Command “Focus timer: 5 more…” and Remove Long Press.">
+<img src="assets/docs/img/button-logic/long-press-2.png" width="240" height="438" alt="The editor of the focus button, scrolled to Appearance and Long Press: Type “Shell Command”, Command “Focus timer: 5 more…” and Remove Long Press.">
 </div>
 
 ## Next

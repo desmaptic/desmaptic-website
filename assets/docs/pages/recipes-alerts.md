@@ -1,4 +1,4 @@
-<!-- updated: 2026-10-11 -->
+<!-- updated: 2026-10-16 -->
 # Recipes: timers, alerts and triggers
 
 This page holds four recipes: a timer that survives a reconnect, a job that runs longer than the 60 seconds a tap allows, a button that a Claude Code hook turns red, and a notification on your iPhone or iPad when a long Terminal command ends. Each recipe is complete. Copy its scripts, put them where its **Where it goes** table says, and adjust the settings at the top.
@@ -250,7 +250,7 @@ For a single-button timer with a chime at zero, add **Timer** from the Gallery.
 Tap to start a deploy that may take ten minutes. The button counts the time, and a notification reports the result.
 
 > [!WARNING]
-> A tap script is stopped after 60 seconds, as the note under **Command** says: "Runs for up to 60 seconds. Put loops and live updates in the Startup Script." A deploy run from a tap would be cut off halfway, with no report. Here the tap only asks for a run; the startup script, with no time limit, does the job.
+> A tap script is stopped after 60 seconds, as the note under **Command** says: "The command can run for up to 60 seconds. For anything longer, like keeping the button up to date, use the Startup Script in Advanced." A deploy run from a tap would be cut off halfway, with no report. Here the tap only asks for a run; the startup script, with no time limit, does the job.
 
 <div class="shot-pair">
 <img src="assets/docs/img/recipes-alerts/deploy-1.png" width="240" height="521" alt="The deck while the deploy runs: the first button reads “Deploy 1:23”, with a blue hourglass.">

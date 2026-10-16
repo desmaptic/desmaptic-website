@@ -1,4 +1,4 @@
-<!-- updated: 2026-10-11 -->
+<!-- updated: 2026-10-16 -->
 # Troubleshooting
 
 Find what you see in the first column of a table: the exact text of an error, or what the button does. The row says why it happens and what to do, and links to the page with the details.
@@ -79,7 +79,7 @@ A button that doesn't work keeps its look: Desmaptic draws nothing on it. The �
 | The trap's cleanup runs twice, or never | Twice: `trap cleanup EXIT` next to `trap 'cleanup; exit 0' TERM`. Never: in zsh, an EXIT trap alone does not run when the script is stopped. | Use one trap and no EXIT trap: `trap 'cleanup; exit 0' TERM INT`. [How scripts run › One trap, run once](?p=scripts#one-trap-run-once) |
 | A button keeps a script's title or face after the script ended | A script that ends by itself leaves its last look. When the agent stops a script, it clears only that script's own button. | Send `reset` before the script exits, and from its trap for every other button it drew. On the phone, save a change to the button or tap **Restart Startup Script**. [Live widgets › What brings back the saved look](?p=live-widgets#what-brings-back-the-saved-look) |
 | "Its tap action is larger than 256 KB…" or "Button Too Large" | The limits: 256 KB per script (the message names which one), 64 KB per drawing ("Its drawing is larger than 64 KB…"), 750 KB per button. | Make it smaller: keep data in files in the storage folder, and round the numbers in a drawing to one decimal. [How scripts run › Storage and size limits](?p=scripts#storage-and-size-limits) |
-| A second tap does nothing | The first run of the tap script is still going (the button pulses), and the phone sends no new tap until it ends. | Wait, or tap **Stop Process** under **Tap** in the button's editor. A tap script ends after 60 s at the latest. [How scripts run › Time limits and stopping](?p=scripts#time-limits-and-stopping) |
+| A second tap does nothing | The first run of the tap script is still going (the button pulses), and the phone sends no new tap until it ends. | Wait, or tap **Stop Command** under **Tap** in the button's editor. A tap script ends after 60 s at the latest. [How scripts run › Time limits and stopping](?p=scripts#time-limits-and-stopping) |
 | A tap script stops halfway, with the toast "No answer in time" | Tap and long-press scripts are stopped after 60 s, together with everything they started; the error text reads `Timed out after 60s`. | Let the tap only request the job, and let the startup script do it: it has no time limit. [Recipes: timers, alerts and triggers › Long job with a report](?p=recipes-alerts#long-job-with-a-report) |
 | A widget starts over after a reconnect | Each time the phone connects, every startup script starts from scratch, and nothing in memory survives. | Keep what the script must remember, such as an end time, in a file under `$DESMAPTIC_STORAGE`. [Button logic › Remembering things](?p=button-logic#remembering-things) |
 

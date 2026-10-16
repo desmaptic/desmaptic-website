@@ -1,4 +1,4 @@
-<!-- updated: 2026-10-11 -->
+<!-- updated: 2026-10-16 -->
 # Live widgets
 
 A live widget is a button that keeps itself up to date: free disk space, the song that is playing, the state of a build. A startup script on your Mac does the work while your iPhone or iPad is connected to it, and sends the button a new look whenever the value changes.
@@ -6,7 +6,7 @@ A live widget is a button that keeps itself up to date: free disk space, the son
 <!-- Anchor used by the iOS app (EditorHelpLinks: the Learn More… link under Advanced › Startup Script). Keep this heading text. -->
 ## Startup scripts
 
-Every button can have a startup script: in the button's editor, tap **Advanced › Startup Script › Write Script** (it is in the main editor only, not under **Long Press**). It is a zsh script, like a tap script (the **Shell Command** a button runs when you tap it). There are two differences: Desmaptic Agent, the app on your Mac, starts it by itself, and it has no time limit. The editor sums it up under the script: "Runs on the Mac for as long as this device is connected. Use it for live widgets that update this button."
+Every button can have a startup script: in the button's editor, tap **Advanced › Startup Script › Write Script** (it is in the main editor only, not under **Long Press**). It is a zsh script, like a tap script (the **Shell Command** a button runs when you tap it). There are two differences: Desmaptic Agent, the app on your Mac, starts it by itself, and it has no time limit. The editor sums it up under the script: "Runs on the Mac while this device is connected. With it, the button can update itself, like a live widget."
 
 When it runs:
 
@@ -228,7 +228,7 @@ It is a plain text replacement, so it works inside any string: `"$DESMAPTIC_STOR
 
 ### Finding a button's ID
 
-Open the button's editor and tap **Advanced**. Under **Button ID**, tap **Copy** (it turns into **Copied**), then paste the ID where you need it, for example into another button's script. The footer says what it is for: "This button's scripts see it as {{CELL_ID}}. Copy it when one script draws several buttons."
+Open the button's editor and tap **Advanced**. Under **Button ID**, tap **Copy** (it turns into **Copied**), then paste the ID where you need it, for example into another button's script. The footer says what it is for: "In this button's scripts, {{CELL_ID}} is replaced with this ID. Copy it when one script draws several buttons."
 
 <img src="assets/docs/img/live-widgets/button-id.png" width="280" height="608" alt="The Advanced screen: under Button ID the ID in monospace and, in place of Copy, the green word “Copied”, with the footer line below.">
 

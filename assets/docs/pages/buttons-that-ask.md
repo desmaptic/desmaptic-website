@@ -1,4 +1,4 @@
-<!-- updated: 2026-10-12 -->
+<!-- updated: 2026-10-16 -->
 # Buttons that ask
 
 A button can ask for a few words before it runs. You tap it, a card opens on the phone with a question, and you type, dictate or pick a ready answer. Your Mac then runs the button's action with that text: it adds a line to your notes, files a bug, opens a search or hands a task to Claude Code.
@@ -81,7 +81,7 @@ Any button whose tap is a **Shell Command**, **AppleScript**, **Text Snippet**, 
 >
 > Open the button in the editor. Under **Tap**, below **Type** and **Command**, tap **Ask Before Running**. The row reads "Off" until the button asks, then shows the question.
 >
-> <img src="assets/docs/img/buttons-that-ask/editor-row.png" width="240" height="466" alt="Edit Button for a Note button: under Tap, Type “Shell Command”, the Command row, and Ask Before Running with “What to no…”; Appearance with the Name “Note” below.">
+> <img src="assets/docs/img/buttons-that-ask/editor-row.png" width="240" height="521" alt="Edit Button for a Note button: under Tap, Type “Shell Command”, the Command row, and Ask Before Running with “What to note?”; Appearance with the Name “Note” below.">
 
 > [!STEP] 2 · Write the question and the replies
 >
@@ -89,13 +89,14 @@ Any button whose tap is a **Shell Command**, **AppleScript**, **Text Snippet**, 
 >
 > - **Question**: what to type, such as "What to note?". Left empty, the card asks "What should this button send?".
 > - **Field Hint**: the grey example inside the empty field, such as "A thought, a link…".
-> - **Quick Replies**: tap **Add Reply** for each ready answer. **Edit** reorders them.
+> - **Quick Replies**: tap **Add Reply** for each ready answer. To change their order, tap **Edit** in the **Quick Replies** heading; it shows once there are two replies.
 > - **Multiple Lines**: for notes and bug reports, where Return starts a new line.
 > - **Quick Replies Only**: the card opens as a row of your replies by the button, without the keyboard. **Own Text…** still lets you type anything, so the action must handle any text. It needs at least one reply.
 >
 > **Preview** shows the card as it will look, and the note under it says how your action gets the text.
 >
-> <img src="assets/docs/img/buttons-that-ask/ask-screen.png" width="240" height="776" alt="The Ask Before Running screen: the switch on, End the Name with “…”, Card with the Question “What to note?” and the Field Hint “A thought, a link…”, Quick Replies Call back, Buy milk and Idea with Add Reply, the switches Multiple Lines and Quick Replies Only, the Preview of the card, and the note “The script reads the text from $DESMAPTIC_INPUT, as data: nothing in it runs.”">
+> <img src="assets/docs/img/buttons-that-ask/ask-screen-1.png" width="240" height="521" alt="The top of the Ask Before Running screen: the switch on, End the Name with “…”, Card with the Question “What to note?” and the Field Hint “A thought, a link…”, then Quick Replies with Edit in its heading: Call back, Buy milk and Idea, Add Reply, and the notes “Tapping a reply sends it right away.” and “To change the order, tap Edit.”">
+> <img src="assets/docs/img/buttons-that-ask/ask-screen-2.png" width="240" height="305" alt="The same screen scrolled down: the switches Multiple Lines and Quick Replies Only, the Preview of the card with the question, the field, the three replies, Paste and Send, and the note “The script gets the text in $DESMAPTIC_INPUT. The text isn’t put into the code, so nothing in it runs by itself.”">
 
 > [!STEP] 3 · Use the text in the action
 >

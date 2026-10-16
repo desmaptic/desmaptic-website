@@ -6,7 +6,8 @@ Press contact: Mikhail Zhukov, support@desmaptic.com
 
 FACT SHEET
 
-Product        Desmaptic — a control deck for your Mac on iPhone and iPad, built by your AI.
+Product        Desmaptic: AI Macropad for Mac. Buttons and live widgets for anything, on iPhone and
+               iPad, built by your AI.
 
 What it is     An iPhone and iPad app plus a free Mac agent in the menu bar. Buttons press key combinations,
                run zsh scripts and AppleScript, launch apps, run Shortcuts, open URLs, type text snippets and
@@ -53,19 +54,19 @@ Links          Website     https://desmaptic.com/
 DESCRIPTIONS
 
 One line
-Desmaptic turns your iPhone or iPad into a control deck for your Mac — and your AI builds it.
+Desmaptic turns your iPhone or iPad into an AI macropad for your Mac: buttons and live widgets, built by your AI.
 
 25 words
-Desmaptic turns an iPhone or iPad into a Mac control deck. Claude, ChatGPT or any MCP client builds buttons;
+Desmaptic is an AI macropad for Mac on iPhone and iPad. Claude, ChatGPT or any MCP client builds buttons;
 you approve them on your phone.
 
 50 words
-Desmaptic turns an iPhone or iPad into a control deck for your Mac. Buttons press hotkeys, run scripts, launch
+Desmaptic turns an iPhone or iPad into an AI macropad for your Mac. Buttons press hotkeys, run scripts, launch
 apps or show live numbers. Ask Claude, ChatGPT or any MCP client for a page: it arrives on your phone with
 every script shown, and applies only when you tap Accept.
 
 150 words
-Desmaptic turns the iPhone or iPad you already own into a control deck for your Mac. A free menu-bar agent runs
+Desmaptic turns the iPhone or iPad you already own into an AI macropad for your Mac. A free menu-bar agent runs
 everything on the Mac; the phone holds the buttons: key combinations, zsh and AppleScript, Shortcuts, app
 launches, text snippets — and live buttons that draw data, like a CPU ring or a countdown.
 

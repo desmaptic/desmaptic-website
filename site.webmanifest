@@ -1,7 +1,7 @@
 {
   "name": "Desmaptic",
   "short_name": "Desmaptic",
-  "description": "Turn your iPhone or iPad into a programmable command center for your Mac.",
+  "description": "AI Macropad for Mac, on your iPhone and iPad: big buttons and live widgets for anything, built by your AI.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",

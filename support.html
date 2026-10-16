@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support — Desmaptic</title>
+  <meta name="description" content="Desmaptic support: how to reach me, answers to common questions, and what Desmaptic needs.">
+  <link rel="canonical" href="https://desmaptic.com/support">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Desmaptic">
+  <meta property="og:url" content="https://desmaptic.com/support">
+  <meta property="og:title" content="Support — Desmaptic">
+  <meta property="og:description" content="Desmaptic support: how to reach me, answers to common questions, and what Desmaptic needs.">
+  <meta property="og:image" content="https://desmaptic.com/assets/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Support — Desmaptic">
+  <meta name="twitter:description" content="Desmaptic support: how to reach me, answers to common questions, and what Desmaptic needs.">
+  <meta name="twitter:image" content="https://desmaptic.com/assets/og-image.jpg">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <meta name="theme-color" content="#000000">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="assets/style.css?v=20261014">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="/" class="nav-logo" aria-label="Desmaptic home">
+        <img src="assets/icon-96.png" alt="Desmaptic icon" width="32" height="32" loading="lazy">
+        Desmaptic
+      </a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="docs">Docs</a></li>
+        <li><a href="privacy">Privacy</a></li>
+        <li><a href="terms">Terms</a></li>
+        <li><a href="support" aria-current="page">Support</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="legal container" id="main">
+    <h1>Support</h1>
+    <span class="legal-updated">Last updated: October 14, 2026</span>
+    <p>Desmaptic is made by one developer, Mikhail Zhukov, and I read every email myself.</p>
+
+    <h2 id="contact">Contact</h2>
+    <p>Write to <a href="mailto:support@desmaptic.com">support@desmaptic.com</a>. It helps if you tell me what you tapped and what you saw: a screenshot, or the error text. To copy an error on your iPhone or iPad, touch and hold its row in <strong>Errors</strong> and choose <strong>Copy Error</strong>.</p>
+
+    <h2 id="requirements">Requirements</h2>
+    <ul>
+      <li>An iPhone or iPad with iOS 17 or iPadOS 17 or later, with Desmaptic from the App Store.</li>
+      <li>A Mac with macOS 15 or later, with Desmaptic Agent, a free app you <a href="/download">download from this website</a>.</li>
+    </ul>
+
+    <h2 id="faq">Common questions</h2>
+
+    <h3 id="phone-doesnt-find-mac">My iPhone or iPad doesn’t find my Mac</h3>
+    <ul>
+      <li><strong>Desmaptic Agent is running.</strong> Its icon, a rounded square with a key, is in the Mac’s menu bar. If it isn’t, open Desmaptic Agent from Applications. The first time, go on in its <strong>Setup</strong> until <strong>Connect your iPhone or iPad</strong>.</li>
+      <li><strong>Same network.</strong> The phone and the Mac are on the same Wi-Fi network.</li>
+      <li><strong>Local Network is on.</strong> Desmaptic needs local network access to see the Mac. If it says “Can’t find your Mac? Turn on Local Network for Desmaptic in Settings.”, tap <strong>Open Settings</strong> and turn on <strong>Local Network</strong>.</li>
+      <li><strong>One phone at a time.</strong> A Mac serves one iPhone or iPad at a time. If another one is using it, close Desmaptic there.</li>
+    </ul>
+    <p>Away from home, your phone can reach the same Mac through your own VPN, such as Tailscale: turn on <strong>Allow Connections over VPN</strong> in the agent’s <strong>Security</strong> and <strong>App Lock</strong> on the phone, then open Desmaptic once at home, so your Mac hands the phone its VPN addresses. See <a href="/docs?p=away-from-home">Away from home</a>.</p>
+
+    <h3 id="pairing">Pairing code and connecting again</h3>
+    <p>You pair once, on the same network. Tap your Mac in the list on the phone, click <strong>Show Code</strong> in the <strong>Pairing Request</strong> on the Mac, and type the 6-digit code on the phone. After that, the phone reconnects by itself. The connection badge at the top of the deck shows your Mac’s name and opens the list of your Macs.</p>
+    <ul>
+      <li>Three wrong codes end a request: tap <strong>Try Again</strong> for a new code. After five, the Mac blocks pairing until you click <strong>Allow Pairing</strong> in the agent window, on <strong>Overview</strong> or <strong>Devices</strong>.</li>
+      <li>To pair from scratch, tap the connection badge and <strong>Forget</strong> next to the Mac under <strong>Paired Macs</strong>, or click <strong>Remove</strong> next to the phone in the agent’s <strong>Devices</strong>. Then pair again with a new code. After you reinstall Desmaptic Agent, pair again too.</li>
+    </ul>
+
+    <h3 id="mac-permissions">Buttons stopped pressing keys or controlling apps</h3>
+    <p>Key combinations, Text Snippets and most System Actions need <strong>Accessibility</strong>; buttons that control other apps need <strong>Automation</strong>. Click the agent’s icon in the menu bar, choose <strong>Show Agent Window</strong>, then <strong>Permissions</strong>: each row says whether the permission is granted.</p>
+    <ul>
+      <li><strong>Accessibility:</strong> click <strong>Grant Access</strong> and turn on Desmaptic Agent in System Settings › Privacy &amp; Security › Accessibility. If it is already on there but still reads <strong>Not Granted</strong>, for example after an update of the agent, select Desmaptic Agent in that list, remove it with the − button, then click <strong>Grant Access</strong> again and turn it on.</li>
+      <li><strong>Automation:</strong> click <strong>Grant Access</strong>. In System Settings › Privacy &amp; Security › Automation, under Desmaptic Agent, turn on System Events and the app the button controls, such as Music or Finder, then click <strong>Retry</strong>.</li>
+    </ul>
+    <p>On the phone, such a tap flashes red with “Accessibility access needed” or “Automation access needed”: <strong>Details</strong>, then <strong>Open Settings on Mac</strong>, opens the same place on the Mac. See <a href="/docs?p=scripts#macos-permissions">macOS permissions</a>.</p>
+
+    <h3 id="button-doesnt-work">A button doesn’t work</h3>
+    <ul>
+      <li>A tap that fails flashes the button red, and a toast at the bottom of the screen says what went wrong. Tap <strong>Details</strong> to read more.</li>
+      <li>⚠ with a number next to your Mac’s name at the top of the deck counts the buttons that don’t work right now, such as a live widget whose script fails. Tap it for <strong>Errors</strong>: each row says what went wrong, with the error text and often a hint. After the fix, tap <strong>Restart Script</strong>.</li>
+    </ul>
+    <p>The <a href="/docs?p=troubleshooting">Troubleshooting</a> page lists the errors one by one.</p>
+
+    <h3 id="pro">What does Pro include, and how do I restore or cancel it?</h3>
+    <p>Desmaptic is free with two profiles of two pages each, and Desmaptic Agent is free. Pro adds unlimited profiles and pages and lets you reorder pages. It is a monthly or yearly subscription, or a one-time Lifetime purchase, in the App Store.</p>
+    <ul>
+      <li><strong>Restore:</strong> open the profile menu at the top left of the deck, then <strong>Settings</strong> › <strong>Upgrade to Pro</strong>, and tap <strong>Restore Purchases</strong> at the bottom. Use the same Apple Account you bought Pro with.</li>
+      <li><strong>Cancel:</strong> subscriptions are managed by Apple. On your iPhone or iPad, open the Settings app, tap your name, then <strong>Subscriptions</strong>, choose Desmaptic and cancel. Pro stays until the end of the period you’ve paid for. Refunds are handled by Apple at <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>.</li>
+    </ul>
+
+    <h3 id="icloud">How does iCloud sync work?</h3>
+    <p>When your iPhone and iPad are signed in to iCloud with the same Apple Account, they share your profiles, pages and buttons through your iCloud. There is nothing to turn on in Desmaptic: <strong>Settings</strong> › <strong>iCloud Sync</strong> shows the state, such as “Up to date”, “Not signed in” or “iCloud storage is full”. Without iCloud, your deck is saved only on that device.</p>
+    <p>Your deck in iCloud isn’t end-to-end encrypted unless Advanced Data Protection is on, so don’t put passwords or tokens in scripts.</p>
+
+    <h3 id="ai">Which AI apps work with it, and what can they do?</h3>
+    <p>Claude Desktop, Claude Code and ChatGPT / Codex connect with <strong>Connect</strong> in the agent’s <strong>AI Assistants</strong>. Cursor, Windsurf and other MCP clients take a config you copy from the same place. An AI app is optional.</p>
+    <ul>
+      <li>New or changed buttons, pages and profiles from an AI arrive on your iPhone or iPad as a card that shows every script they run. Nothing changes until you tap <strong>Accept</strong>; <strong>Reject</strong> leaves your deck as it is.</li>
+      <li>An AI can’t press your buttons, and it can’t delete a button, a page or a profile: you delete them on the phone.</li>
+      <li>Running a command on your Mac is off until you turn on <strong>Allow AI to Run Commands</strong> in the agent’s <strong>Security</strong>, and then you allow each command on the phone.</li>
+    </ul>
+    <p>See <a href="/docs?p=ai">Use with an AI app</a>.</p>
+
+    <h2 id="links">Links</h2>
+    <ul>
+      <li><a href="/docs">Documentation</a></li>
+      <li><a href="/download">Download Desmaptic Agent</a></li>
+      <li><a href="/changelog/">What’s new: version history</a></li>
+      <li><a href="/privacy">Privacy Policy</a></li>
+      <li><a href="/terms">Terms of Use</a></li>
+    </ul>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-left">
+        <span class="footer-logo">Desmaptic</span>
+        <ul class="footer-links">
+          <li><a href="docs">Docs</a></li>
+          <li><a href="privacy">Privacy Policy</a></li>
+          <li><a href="terms">Terms of Use</a></li>
+          <li><a href="support" aria-current="page">Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-right">&copy; 2026 Desmaptic</div>
+    </div>
+  </footer>
+
+</body>
+</html>
